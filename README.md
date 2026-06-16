@@ -6,7 +6,7 @@ Sketchbook is a tool that helps create art with code.
 
 What is a creative process? An iterative process of generating ideas, developing them, and brining them to life. 
 
-Sketchbook makes use of a creative process inspired by the [ZettleKasten](https://en.wikipedia.org/wiki/Zettelkasten) invented by Nkilas Luhman. But instead of take notes on a concept or idea we create a **Sketch**. 
+Sketchbook makes use of a process called [ZettleKasten](https://en.wikipedia.org/wiki/Zettelkasten) invented by Nkilas Luhman. But instead of taking notes on a concept or idea we create a **Sketch**. 
 
 Take a look at this example diagram:
 
@@ -47,7 +47,7 @@ Then you can use any text editor and start hacking away.
 
 #### Iterate
 
-The power of this creative process is the ability to iterate on ideas. At any point when you want to explore another iteration use this command `sketch -i` which will create an exact copy. Make sure you are in the directory of the sketch you want to iterate. For example to iterate on 0001/ `cd` to 0001/ and run the command. Don't `cd` to 0001/sketch/. 
+The power of this creative process is the ability to iterate on ideas. At any point when you want to explore another idea use this command `sketch -i` which will create an exact copy. Make sure you are in the directory of the sketch you want to iterate. For example to iterate on 0001/ `cd` to 0001/ and run the command. Don't `cd` to 0001/sketch/. 
 
 ```
 My_Sketchbook/
