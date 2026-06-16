@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" href="/favicon.ico" />
+	<link rel="stylesheet" href="./style.css"/> 
+	<title>Sketchbook</title> 
+	<style>
+		:root {
+			--primary-color: #fff; 
+			--border-color: #ededed;
+			--background-color: #111111;
+			--header-color: #ededed; 
+			--text-color: #ededed;
+			--link-color: #19e03a;
+			--link-hover-color: #00bf20;
+			--link-visited-color: #19e03a;
+			--link-active-color: #00ff2a;
+		}
+
+		body {
+			font-family: 'Inter', sans-serif;
+			font-size: large;
+			background-color: var(--background-color);
+			color: var(--primary-color);
+			margin: 0; 
+			padding: 20px;
+			height: auto;
+			width: 100vw;
+			overflow: auto;
+		}
+
+		ul {
+			padding-left: 20px;
+		}
+
+		li {
+			margin-top: 5px;
+		}
+
+		a:link { color: var(--link-color); }
+		a:visited { color: var(--link-visited-color); }
+		a:hover { color: var(--link-hover-color); }
+		a:active { color: var(--link-active-color); }
+
+	</style>
+</head>
+
+<body>
+	<h1>Sketchbook</h1>
+	<p>Total Sketches: {{sketches}}</p>
+	<a href="/display">display</a>
+	{{tree}}
+	<br>
+</body>
+
+</html>

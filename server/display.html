@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" href="/favicon.ico" />
+	<link rel="stylesheet" href="./style.css"/> 
+	<title>Sketchbook | Display</title> 
+	<style>
+		:root {
+			--primary-color: #fff; 
+			--border-color: #ededed;
+			--background-color: #111111;
+			--header-color: #ededed; 
+			--text-color: #ededed;
+			--link-color: #19e03a;
+			--link-hover-color: #00bf20;
+			--link-visited-color: #19e03a;
+			--link-active-color: #00ff2a;
+		}
+
+		body {
+			font-family: 'Inter', sans-serif;
+			font-size: large;
+			background-color: var(--background-color);
+			color: var(--primary-color);
+			margin: 0; 
+			padding: 20px;
+			height: auto;
+			width: 100vw;
+			overflow: auto;
+		}
+
+		ul {
+			padding-left: 20px;
+		}
+
+		li {
+			margin-top: 5px;
+		}
+
+		a:link { color: var(--link-color); }
+		a:visited { color: var(--link-visited-color); }
+		a:hover { color: var(--link-hover-color); }
+		a:active { color: var(--link-active-color); }
+
+		.gallery {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+		}
+
+		.custom-img {
+		    display: inline-block;
+		    background-image: url('https://media.tithe.ly/images/picture.jpeg');
+		    background-size: cover;
+		    background-position: center;
+		  }
+
+		.card {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			width: 300px;
+			height: auto;
+		}
+
+		.card p {
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+
+</head>
+
+<body>
+	<h1>Sketchbook</h1>
+	<p>Total Sketches: {{sketches}}</p>
+	<p><a href="/">reference</a></p>
+	<div class="gallery">
+		{{data}}	
+	</div>
+
+</body>
+
+</html>

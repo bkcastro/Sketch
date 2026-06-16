@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+	--primary-color: #fff; 
+	--border-color: #ededed;
+	--background-color: #111111;
+	--header-color: #ededed; 
+	--text-color: #ededed;
+	--link-color: #19e03a;
+	--link-hover-color: #00bf20;
+	--link-visited-color: #19e03a;
+	--link-active-color: #00ff2a;
+	--lyd-color: #f399ff;
+	--xrspellcaster-color: #b60dff;
+	--xrbrickview-color: #ff0f2b;
+	--xrgallery-color: #cb54f0;
+}
+
+body {
+	font-family: 'Inter', sans-serif;
+	font-size: small;
+	background-color: #575757;
+	color: #333;
+	margin: 0; 
+	padding: 0;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+}
+
+p { padding: 0; margin: 0; }
+
+h1 { padding: 0; margin: 0; }
+
+.nav {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.main {
+    	top: 0;
+	left: 0;
+	display: flex; 
+	justify-content: center; 
+	flex-direction: column;
+	align-items: center;
+    	position: absolute;
+	gap: 15px;
+	padding: 20px;
+	z-index: 2;
+	height: 100%;
+	width: 100%;
+	background-color: var(--background-color);
+	border: 5px solid var(--border-color);
+	box-sizing: border-box;
+	color: var(--primary-color);
+	font-size: medium;
+	text-align: center;
+}
+
+.about {
+	max-width: 400px;
+}
+
+a:link { color: var(--link-color); }
+a:visited { color: var(--link-visited-color); }
+a:hover { color: var(--link-hover-color); }
+a:active { color: var(--link-active-color); }
+
+.links { 
+	padding: 0;
+	margin: 0;
+	gap: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 300px;
+}
+
+.digital_garden_links { 
+	padding: 0;
+	margin: 0;
+	gap: 10px;
+	column-gap: 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 1000px;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	max-width: 500px;
+	height: auto;
+	margin-bottom: 25px;
+}
+
+.card h1 {
+	padding-bottom: 10px;
+}
+
+.image-container {
+	display: flex; 
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: 600px;
+	gap: 10px;
+}
+
+.image-container img {
+	width: 100%;
+	height: auto;
+}
+
+
