@@ -1,5 +1,30 @@
 {
-	"bin": {
-		"sketch": "./src/cli.js"
-	}
+  "name": "sketchbook",
+  "version": "1.0.0",
+  "description": "Sketchbook is a tool that helps create art with code.",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bkcastro/Sketchbook.git"
+  },
+  "keywords": [],
+  "author": "Brandon Castro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bkcastro/Sketchbook/issues"
+  },
+  "homepage": "https://github.com/bkcastro/Sketchbook#readme",
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "clear": "^0.1.0",
+    "figlet": "^1.11.0"
+  }
 }
