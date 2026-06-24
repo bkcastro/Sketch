@@ -1,6 +1,6 @@
-# Sketchbook
+# Sketch
 
-Sketchbook is a tool that helps create art with code.
+Sketch is a CLI tool that helps create art with code.
 
 [sketchbook_demo_2.webm](https://github.com/user-attachments/assets/ce05dadb-9a61-4e3d-9f10-44bcfe700138)
 
