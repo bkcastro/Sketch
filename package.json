@@ -1,7 +1,7 @@
 {
   "name": "sketchbook",
-  "version": "1.0.0",
-  "description": "Sketchbook is a tool that helps create art with code.",
+  "version": "0.0.1",
+  "description": "Sketch is a tool that helps create art with code.",
   "main": "index.js",
   "type": "module",
   "directories": {

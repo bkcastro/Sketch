@@ -1,11 +1,12 @@
-import http from "http";
-import fs from "fs";
-import path from "path";
-import url from "url";
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
+import url from 'url';
+import chalk from 'chalk'
 
-const ROOT_DIR = process.argv[2] || ".";
+const ROOT_DIR = '.';
 const PORT = 3000;
-const __dirname = process.cwd();
+const __dirname = import.meta.dirname; 
 
 const mimeType = {
   '.ico': 'image/x-icon',
@@ -31,11 +32,11 @@ function isNumberedFolder(name) {
 
 var total_sketches = 0;
 
-function renderTree(relPath = "") {
+function renderTree(relPath = '') {
 		const fullPath = path.join(ROOT_DIR, relPath);
 
 		const entries = fs.readdirSync(fullPath, { withFileTypes: true })
-		.filter(e => e.isDirectory() && !e.name.startsWith(".") && isNumberedFolder(e.name))
+		.filter(e => e.isDirectory() && !e.name.startsWith('.') && isNumberedFolder(e.name))
 		.sort((a, b) => a.name.localeCompare(b.name));
 	
 		total_sketches += entries.length;
@@ -43,25 +44,25 @@ function renderTree(relPath = "") {
 		            const childPath = path.join(relPath, entry.name);
 		            return `
 			                <li>
-						<a target="_blank" href="/${childPath}/sketch/"
-					         data-path="/${childPath}/sketch/">${entry.name}/</a>
+						<a target='_blank' href='/${childPath}/sketch/'
+					         data-path='/${childPath}/sketch/'>${entry.name}/</a>
 
 						<ul>
 						${renderTree(childPath)}
 						</ul>
 					</li>
 				  `;
-		}).join("");
+		}).join('');
 
-		return "<ul>" + childrenHTML + "</ul>";
+		return '<ul>' + childrenHTML + '</ul>';
 }
 
-function renderDisplay(relPath = "") {
+function renderDisplay(relPath = '') {
 
 		const fullPath = path.join(ROOT_DIR, relPath);
-		var res = "";	
+		var res = '';	
 		const entries = fs.readdirSync(fullPath, { withFileTypes: true })
-		.filter(e => e.isDirectory() && !e.name.startsWith(".") && isNumberedFolder(e.name))
+		.filter(e => e.isDirectory() && !e.name.startsWith('.') && isNumberedFolder(e.name))
 		.sort((a, b) => a.name.localeCompare(b.name));
 
 		for (let i = 0; i < entries.length; i++) {
@@ -69,10 +70,10 @@ function renderDisplay(relPath = "") {
 			const childPath = path.join(relPath, entry.name);
 			
 			res += `
-				<div class="card">
-					<img class="custom-img" src="${childPath}/sketch/thumbnail.webp" width="300" height="300" alt="">
+				<div class='card'>
+					<img class='custom-img' src='${childPath}/sketch/thumbnail.webp' width='300' height='300' alt=''>
 					<p>title</p>
-					<a target="_blank" href="/${childPath}/sketch/" data-path="/${childPath}/sketch/">${childPath}</a>
+					<a target='_blank' href='/${childPath}/sketch/' data-path='/${childPath}/sketch/'>${childPath}</a>
 				</div>
 				`
 			res += renderDisplay(childPath);
@@ -82,7 +83,7 @@ function renderDisplay(relPath = "") {
 }
 
 function render(file, data) {
-	    let html = fs.readFileSync(file, "utf-8");
+	    let html = fs.readFileSync(file, 'utf-8');
 
 	    Object.entries(data).forEach(([key, value]) => {
 		            html = html.replaceAll(`{{${key}}}`, value);
@@ -91,21 +92,19 @@ function render(file, data) {
 	    return html;
 }
 
-const tree_data = renderTree(); 
-const display_data = renderDisplay();
 
 
 const server = http.createServer((req, res) => {
 
 	console.log(`${req.method} ${req.url}`);
 
-	if (req.url == "/" && req.method == "GET") {
+	if (req.url == '/' && req.method == 'GET') {
 		
 		res.writeHead(200, {
-			"Content-Type": "text/html"
+			'Content-Type': 'text/html'
 		});
 
-		const html = render(path.join(__dirname, "reference.html"), {
+		const html = render(path.join(__dirname, 'reference.html'), {
 			tree: tree_data, 
 			sketches: total_sketches
 		});
@@ -115,13 +114,13 @@ const server = http.createServer((req, res) => {
 		return;
 	}
 
-	if (req.url == "/display" && req.method == "GET") {
+	if (req.url == '/display' && req.method == 'GET') {
 
 		res.writeHead(200, {
-			"Content-Type": "text/html"
+			'Content-Type': 'text/html'
 		});
 
-		const html = render(path.join(__dirname, "display.html"), {
+		const html = render(path.join(__dirname, 'display.html'), {
 			sketches: total_sketches,
 			data: display_data
 		});
@@ -173,8 +172,21 @@ const server = http.createServer((req, res) => {
 
 });
 
-server.listen(PORT, () => {
-	console.log(
-		"Server running on http://localhost:" + PORT
-	);
-});
+
+let tree_data;
+let display_data;
+
+export default function start_server() {
+	
+	/**
+	 * Load data.
+	 */
+	tree_data = renderTree(); 
+	display_data = renderDisplay();
+
+	server.listen(PORT, () => {
+		console.log(
+			chalk.yellow('Server running on http://localhost:') + chalk.green(PORT)
+		);
+	});
+}
