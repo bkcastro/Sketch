@@ -1,19 +1,28 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { createName } from '../lib/files.js'
 
-test('synchronous passing test', (t) => {
-	// This test passes because it does not throw an exception.
+test('create valid sketch names', (t) => {
 
-	assert.strictEqual(1, 1);
+    const nums = [1,2,3,4,5,6,7,8,9,10];
+    const answer = [
+        '0001',
+        '0002',
+        '0003',
+        '0004',
+        '0005',
+        '0006',
+        '0007',
+        '0008',
+        '0009',
+        '0010'
+    ]
+
+    var temp = new Array();
+
+    for (const n of nums) temp.push(createName(n));
+
+    assert.deepStrictEqual(answer, temp);
+
 });
 
-test('synchronous failing test', (t) => {
-	// This test fails because it throws an exception.
-	
-	assert.strictEqual(1, 2);
-});
-
-test('asynchronous passing test', async (t) => {
-	// This test passes because the Promise returned by the async
-	// function is settled and not rejected.
-});

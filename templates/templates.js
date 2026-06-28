@@ -3,11 +3,27 @@
  */
 
 import chalk from 'chalk';
+import path from 'path';
 
-export const templates = {
+const templates = {
     'default': './default',
     '2D': './2D',
     '2D_framed': './2D_framed',
+}
+
+/**
+ * Return template URL.
+ *
+ * @param {string} template
+ * @return {string}
+ */
+export function getTemplateURL(template) {
+    
+    if (template in templates) {
+        return path.join(import.meta.dirname, templates[template]);
+    } else {
+        throw new Error(`Template: ${template} does not exists.`);
+    }
 }
 
 /**
@@ -16,3 +32,4 @@ export const templates = {
 export function printTemplates() {
     console.log(chalk.green(Object.keys(templates).join(', ')));
 }
+

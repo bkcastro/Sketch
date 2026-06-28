@@ -73,7 +73,13 @@ function renderDisplay(relPath = '') {
 		for (let i = 0; i < entries.length; i++) {
 			const entry = entries[i];
 			const childPath = path.join(relPath, entry.name);
-			
+            
+            const sketch_files = fs.readdirSync(path.join(childPath, './sketch'));
+            const regex = /^thumbnail\.[jpg|webp|png]$/;
+            const filter = sketch_files.filter(file => regex.test(file));
+            const thumbnail = (filter.length) ? filter[0] : 'https://media.tithe.ly/images/picture.jpeg'
+		    
+            console.log(sketch_files);
 			res += `
 				<div class='card'>
 					<img class='custom-img' src='${childPath}/sketch/thumbnail.webp' width='300' height='300' alt=''>
