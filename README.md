@@ -71,7 +71,7 @@ My_Sketchbook/
     0001/
         sketch/             <-- Source files copied
             ...
-        0002/               <-- Iteration just created
+        0001/               <-- Iteration just created
             sketch/         <-- Exact copy of 0001/sketch 
                 ...
 ```
@@ -102,7 +102,7 @@ Reference mode uses a tree to represent a sketchbook.
 
 ### Display 
 
-Display mode uses the thumbnail image found inside the folder's named `sketch/` **if it exists**. It is up to the user to take a screenshot of their sketch and place it in the directory. Image files that match this regular expression will be used `/^thumbnail\.[jpg|webp|png]{1}$/`. 
+Display mode uses the thumbnail image found inside the folder named `sketch/` **if it exists**. It is up to the user to take a screenshot of their sketch and place it in the directory. Image files that match this regular expression will be used `/^thumbnail\.[jpg|webp|png]{1}$/`. 
 
 ```
 My_Sketchbook/
