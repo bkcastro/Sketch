@@ -4,4 +4,24 @@
 
 + [x] Upload project to github.
 + [x] File server.
-+ [ ] Node CLI tool.
++ [x] Core commands implemented: 
+    1. Serve: start up the file server.
+    2. Who: print information about the sketchbook.
+    3. Init: initialize a sketchbook.
+    4. Help: print help text.
+    5. Templates: print templates.
++ [x] Core flags implemented: 
+    1. Iterate: iterate on sketches.
+    2. Tempalte: select a template to use.
++ [x] Default commmand creates a sketch project.
+
+## July 2026 Version: 0.0.2
+
++ [ ] Input and output flags.
++ [ ] Unit test for core commands.
++ [ ] Create templates: 
+    1. 3D.
+    2. 2D_Camera.
+    3. 3D_Camera.
+    4. WebXR.
++ [ ] HTTPS support.
